@@ -10,9 +10,21 @@ export default config({
   },
   collections: {
     posts: collection({
-      label: 'Posts',
+      label: 'Articles',
       slugField: 'title',
       path: 'src/content/posts/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({ name: { label: 'Titre' } }),
+        date: fields.date({ name: { label: 'Date' } }),
+        author: fields.text({ name: { label: 'Auteur' } }),
+        content: fields.markdoc({ label: 'Contenu' }),
+      },
+    },
+    {
+      label: 'Pages',
+      slugField: 'title',
+      path: 'src/content/pages/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),

@@ -11,34 +11,23 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://promotionlefort.netlify.app',
-  integrations: [mdx(), sitemap(), react(), markdoc(), keystatic()],
-
-  fonts: [
-      {
-          provider: fontProviders.local(),
-          name: 'Atkinson',
-          cssVariable: '--font-atkinson',
-          fallbacks: ['sans-serif'],
-          options: {
-              variants: [
-                  {
-                      src: ['./src/assets/fonts/atkinson-regular.woff'],
-                      weight: 400,
-                      style: 'normal',
-                      display: 'swap',
-                  },
-                  {
-                      src: ['./src/assets/fonts/atkinson-bold.woff'],
-                      weight: 700,
-                      style: 'normal',
-                      display: 'swap',
-                  },
-              ],
-          },
-      },
-  ],
-
-  output: 'server',
-  adapter: netlify(),
+    site: 'https://promotionlefort.netlify.app',
+    integrations: [mdx(), sitemap(), react(), markdoc(), keystatic()],
+    fonts: [
+        {
+            provider: fontProviders.local(),
+            name: 'Literata',
+            cssVariable: '--font-literata',
+            fallbacks: ['serif'],
+            options: {
+                variants: [{
+                    src: ['./src/assets/Literata-VariableFont_opsz,wght.ttf'],
+                    weight: 'normal',
+                    style: 'normal',
+                }],
+            },
+        },
+    ],
+    output: 'server',
+    adapter: netlify(),
 });

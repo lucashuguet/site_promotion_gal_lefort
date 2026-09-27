@@ -1,0 +1,181 @@
+---
+---
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="nom">
+        <span style="color: blue;">Promotion</span>
+        <span style="color: white;">Général</span>
+        <span style="color: red;">Lefort</span>
+      </div>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+      <span></span>
+    </label>
+
+    <ul class="menu">
+      <li><a href="">Accueil</a></li>
+      <li><a href="">Promotion</a></li>
+      <li><a href="">Traditions</a></li>
+      <li><a href="">Actualités</a></li>
+      <li><a href="">Nous rejoindre</a></li>
+      <li><a href="">Boutique</a></li>
+      <li><a href="">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+
+:root {
+  --maxw: 1600px;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: black;
+  color: white;
+
+  padding: 1rem 2rem;
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.nom {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1em;
+  text-align: right;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #fff;
+  position: relative;
+  content: "";
+  transition: transform 0.25s ease, top 0.25s ease, background 0.25s ease;
+  transform-origin: center;
+}
+
+.hamburger span::before {
+  position: absolute;
+  top: -6px;
+}
+
+.hamburger span::after {
+  position: absolute;
+  top: 6px;
+}
+
+@media(max-width: 900px) {
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: black;
+    max-height: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;;
+  }
+
+  .menu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    border-bottom: 1px solid red;
+  }
+
+  .menu li a {
+    padding: 10px 0;
+  }
+
+  .menu-toggle:checked~.menu {
+    max-height: 100vh;
+    height: 100vh;
+    padding: 1.5rem 0;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu-toggle:checked~.hamburger span {
+    background: transparent;
+  }
+
+
+  .menu-toggle:checked~.hamburger span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle:checked~.hamburger span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+
+</style>
