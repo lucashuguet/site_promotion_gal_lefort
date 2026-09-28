@@ -16,12 +16,12 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Titre' } }),
-        date: fields.date({ name: { label: 'Date' } }),
-        author: fields.text({ name: { label: 'Auteur' } }),
+        date: fields.date({ label: 'Date' }),
+        author: fields.text({ label: 'Auteur' }),
         content: fields.markdoc({ label: 'Contenu' }),
       },
-    },
-    {
+    }),
+    pages: collection({
       label: 'Pages',
       slugField: 'title',
       path: 'src/content/pages/*',
