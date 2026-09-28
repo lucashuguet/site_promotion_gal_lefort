@@ -21,14 +21,24 @@ export default config({
         content: fields.markdoc({ label: 'Contenu' }),
       },
     }),
-    pages: collection({
-      label: 'Pages',
+    promotion: collection({
+      label: 'Promotion',
       slugField: 'title',
-      path: 'src/content/pages/*',
+      path: 'src/content/promotion/*',
       format: { contentField: 'content' },
       schema: {
-        title: fields.slug({ name: { label: 'Title' } }),
-        content: fields.markdoc({ label: 'Content' }),
+        title: fields.slug({ name: { label: 'Titre' } }),
+        content: fields.markdoc({ label: 'Contenu' }),
+      },
+    }),
+    traditions: collection({
+      label: 'Traditions',
+      slugField: 'title',
+      path: 'src/content/traditions/*',
+      format: { contentField: 'content' },
+      schema: {
+        title: fields.slug({ name: { label: 'Titre' } }),
+        content: fields.markdoc({ label: 'Contenu' }),
       },
     }),
   },
