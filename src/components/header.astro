@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import insigne from "../assets/insigne.png"
+import insigne256 from "../assets/insigne_gal_lefort.min.svg?height=256"
 ---
 
 <header class="nav">
@@ -11,7 +11,7 @@ import insigne from "../assets/insigne.png"
         <span style="color: white;">Général</span>
         <span style="color: var(--color-red);">Lefort</span>
       </div>
-      <Image class="insigne" src={insigne} alt="insigne"/>
+      <Image src={insigne256} height={128} alt="insigne promotion gal lefort"/>
     </div>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -33,10 +33,6 @@ import insigne from "../assets/insigne.png"
 
 <style>
 
-:root {
-  --maxw: 1600px;
-}
-
 .nav {
   position: sticky;
   top: 0;
@@ -51,7 +47,6 @@ import insigne from "../assets/insigne.png"
 }
 
 .nav-inner {
-  max-width: var(--maxw);
   margin: auto;
   display: flex;
   align-items: center;
@@ -73,12 +68,6 @@ import insigne from "../assets/insigne.png"
   line-height: 1.1em;
   text-align: right;
 }
-
-.insigne {
-  height: 8rem;
-  width: auto;
-}
-
 
 .menu {
   display: flex;

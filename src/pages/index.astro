@@ -1,7 +1,70 @@
 ---
 import DefaultLayout from "../layouts/default.astro"
 import "../styles/global.css"
+
+import { Image } from 'astro:assets'
+import lefort from "../assets/lefort.jpg"
+import insigne2048 from "../assets/insigne_gal_lefort.min.svg?height=2048"
+import montsaintmichel from "../assets/montsaintmichel.jpg"
 ---
 
 <DefaultLayout>
+  <section>
+    <div class="container">
+      <Image class="side" src={lefort} alt="jacques lefort avril 1945" />
+      <Image class="side" src={montsaintmichel} alt="promotion gal lefort au mont saint michel" />
+      <Image class="insigne" src={insigne2048} alt="insigne promotion gal lefort" />
+    </div>
+  </section>
+  <section>
+    <h1>Actualités</h1>
+  </section>
 </DefaultLayout>
+
+<style>
+
+section {
+  height: calc(100dvh - var(--header-height));
+}
+
+.container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.side {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.insigne {
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  width: auto;
+  transform: translateX(-50%);
+  object-fit: contain;
+}
+
+</style>
+
+<script>
+
+const header = document.querySelector('header');
+
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty(
+    '--header-height',
+    `${header.offsetHeight}px`
+  );
+}
+
+updateHeaderHeight();
+new ResizeObserver(updateHeaderHeight).observe(header);
+
+</script>

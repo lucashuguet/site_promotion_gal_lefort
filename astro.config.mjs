@@ -9,6 +9,8 @@ import markdoc from '@astrojs/markdoc';
 import keystatic from '@keystatic/astro'
 import netlify from '@astrojs/netlify';
 
+import { svgRaster } from './plugins/svg-raster.mjs';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://promotionlefort.netlify.app',
@@ -30,4 +32,5 @@ export default defineConfig({
     ],
     output: 'server',
     adapter: netlify(),
+    vite: { plugins: [svgRaster()] },
 });
