@@ -1,0 +1,42 @@
+---
+import DefaultLayout from "../../layouts/default.astro"
+import { getCollection, render } from "astro:content"
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts")
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+---
+
+<DefaultLayout>
+  <section class="content">
+    <h1>{post.data.title}</h1>
+    <time datetime={post.data.date.toISOString()}>
+      {post.data.date.toLocaleDateString('fr-FR', { dateStyle: 'long' })}
+    </time>
+    <Content class="blog" />
+    <p class="author">{post.data.author}</p>
+  </section>
+</DefaultLayout>
+
+<style>
+
+time {
+  display: block;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.author {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+</style>

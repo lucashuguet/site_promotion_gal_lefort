@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+}
+
+const { posts } = Astro.props;
+
+---
+
+<ul>
+  {posts.map((post) => (
+     <li>
+       <a href={`/posts/${post.id}`}>
+         <h2>{post.data.title}</h2>
+         <time datetime={post.data.date.toISOString()}>
+           {post.data.date.toLocaleDateString("fr-FR", { dateStyle: "long" })}
+         </time>
+         <span>par {post.data.author}</span>
+       </a>
+     </li>
+  ))}
+</ul>
+
+<style>
+
+ul {
+  display: grid;
+  margin-top: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+}
+
+li {
+  padding: 0.5rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  border: 3px solid var(--color-blue);
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+time, span {
+  display: block;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+li:hover {
+  transform: translateY(-4px);
+  border-bottom: 3px solid var(--color-gold);
+  border-right: 3px solid var(--color-gold);
+}
+
+li:hover h2 {
+  color: var(--color-red);
+}
+
+</style>

@@ -1,18 +1,18 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import insigne256 from "../assets/insigne_gal_lefort.min.svg?height=256"
 ---
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="logo">
+    <a class="logo" href="/">
       <div class="nom">
         <span style="color: var(--color-blue);">Promotion</span>
         <span style="color: white;">Général</span>
         <span style="color: var(--color-red);">Lefort</span>
       </div>
       <Image src={insigne256} height={128} alt="insigne promotion gal lefort"/>
-    </div>
+    </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="hamburger">
@@ -20,13 +20,13 @@ import insigne256 from "../assets/insigne_gal_lefort.min.svg?height=256"
     </label>
 
     <ul class="menu">
-      <li><a href="">Accueil</a></li>
-      <li><a href="">Promotion</a></li>
-      <li><a href="">Traditions</a></li>
-      <li><a href="">Actualités</a></li>
-      <li><a href="">Nous rejoindre</a></li>
-      <li><a href="">Boutique</a></li>
-      <li><a href="">Contact</a></li>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/promotion">Promotion</a></li>
+      <li><a href="/traditions">Traditions</a></li>
+      <li><a href="/posts">Actualités</a></li>
+      <li><a href="/rejoindre">Nous rejoindre</a></li>
+      <li><a href="/boutique">Boutique</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </div>
 </header>
@@ -56,6 +56,7 @@ import insigne256 from "../assets/insigne_gal_lefort.min.svg?height=256"
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
+  text-decoration: none;
 
   display: flex;
   align-items: center;

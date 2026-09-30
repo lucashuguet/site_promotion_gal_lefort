@@ -1,0 +1,15 @@
+---
+import DefaultLayout from "../../layouts/default.astro"
+import PostsList from "../../components/postslist.astro"
+import { getCollection } from "astro:content"
+
+const posts = (await getCollection("posts"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+
+<DefaultLayout>
+  <section class="content">
+    <h1>Actualités</h1>
+    <PostsList posts={posts} />
+  </section>
+</DefaultLayout>

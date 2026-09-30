@@ -1,6 +1,5 @@
 :root {
     --color-blue: #01325e;
-    /* --color-blue: #1212ff; */
     --color-red: #e1000f;
     --color-gold: #d8ab4c;
 }
@@ -14,4 +13,24 @@
 body {
     font-family: var(--font-literata);
     min-height: 100dvh;
+}
+
+section.content {
+    padding: 1rem;
+}
+
+h1 {
+    width: fit-content;
+    padding: 1rem;
+    border-bottom: 3px solid var(--color-gold);
+    border-right: 3px solid var(--color-gold);
+}
+
+article {
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+article p {
+    margin: 1rem;
 }

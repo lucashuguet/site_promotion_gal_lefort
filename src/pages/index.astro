@@ -1,11 +1,18 @@
 ---
 import DefaultLayout from "../layouts/default.astro"
-import "../styles/global.css"
 
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets"
+
 import lefort from "../assets/lefort.jpg"
 import insigne2048 from "../assets/insigne_gal_lefort.min.svg?height=2048"
 import montsaintmichel from "../assets/montsaintmichel.jpg"
+
+import PostsList from "../components/postslist.astro"
+import { getCollection } from "astro:content"
+
+const posts = (await getCollection("posts"))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3)
 ---
 
 <DefaultLayout>
@@ -16,8 +23,9 @@ import montsaintmichel from "../assets/montsaintmichel.jpg"
       <Image class="insigne" src={insigne2048} alt="insigne promotion gal lefort" />
     </div>
   </section>
-  <section>
+  <section class="content">
     <h1>Actualités</h1>
+    <PostsList posts={posts} />
   </section>
 </DefaultLayout>
 
