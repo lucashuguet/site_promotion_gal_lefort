@@ -27,12 +27,25 @@ const posts = (await getCollection("posts"))
     <h1>Actualités</h1>
     <PostsList posts={posts} />
   </section>
+  <section class="content" id="rejoindre">
+    <h1>Nous Rejoindre</h1>
+  </section>
+  <section class="content">
+    <h1>Nous Soutenir</h1>
+  </section>
+  <section class="content" id="contact">
+    <h1>Nous Contacter</h1>
+  </section>
+  <section class="content">
+    <h1>Nous Suivre</h1>
+  </section>
 </DefaultLayout>
 
 <style>
 
 section {
   height: calc(100dvh - var(--header-height));
+  scroll-margin-top: var(--header-height);
 }
 
 .container {
